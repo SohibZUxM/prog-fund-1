@@ -79,6 +79,7 @@ class Vehicle:
 
     def setCountry(self,country):
         self.__country=country
+
 class Level(Enum):
     Beginner=1
     Intermediate=2
@@ -125,17 +126,17 @@ class Mechanic:
 
 class Service_Type(Enum):
     diagnostics=1
-    Oil_Replacement =2
-    Oil_Filter_Parts =3
-    Tire_Replacement=4
-    Tire=5
+    oil_Replacement =2
+    oil_Filter_Parts =3
+    tire_Replacement=4
+    tire=5
     
 
 class Service:
-    def __init__(self,date,service_Type,Quantity,customer_ID,vehicle_ID):
+    def __init__(self,date,service_Type,quantity,customer_ID,vehicle_ID):
         self.__date = date
         self.__service_Type= service_Type
-        self.__Quantity = Quantity
+        self.__quantity = quantity
         self.__customer_ID=customer_ID
         self.__vehicel_ID = vehicle_ID
 
@@ -152,16 +153,16 @@ class Service:
         self.__service_Type = service_Type
 
     def getQuantity(self):
-        return self.__Quantity
+        return self.__quantity
 
-    def setQuantity(self,Quantity):
-        self.__Quantity = Quantity
+    def setQuantity(self,quantity):
+        self.__quantity = quantity
 
     def getCustomerID(self):
         return self.__customer_ID
 
-    def setCustomerID(self,Customer_ID):
-        self.__customer_ID = Customer_ID
+    def setCustomerID(self,customer_ID):
+        self.__customer_ID = customer_ID
 
     def getVehicle_ID(self):
         return self.__vehicle_ID
@@ -170,41 +171,41 @@ class Service:
         self.__vehicle_ID = vehicle_ID
 
 class Invoice(Customer):
-    def __init__(self,Customer_ID,InvoiceDate,InvoiceNumber,Discount,Taxes):
-        self.Customer_ID = Customer_ID
-        self.__InvoiceDate = InvoiceDate
-        self.__InvoiceNumber = InvoiceNumber
-        self.__Taxes = Taxes
-        self.__Discount = Discount
+    def __init__(self,customer_ID,invoiceDate,invoiceNumber,discount,taxes):
+        self.customer_ID = customer_ID
+        self.__invoiceDate = invoiceDate
+        self.__invoiceNumber = invoiceNumber
+        self.__taxes = taxes
+        self.__discount = discount
     
     def getCustomerID(self):
         return self.__customer_ID
 
-    def setCustomerID(self,Customer_ID):
-        self.__customer_ID = Customer_ID
+    def setCustomerID(self,customer_ID):
+        self.__customer_ID = customer_ID
 
     def getInvoiceDate(self):
-        return self.__InvoiceDate
+        return self.__invoiceDate
 
-    def setInvoiceDate(self,InvoiceDate):
-        self.__InvoiceDate = InvoiceDate
+    def setInvoiceDate(self,invoiceDate):
+        self.__invoiceDate = invoiceDate
 
     def getInvoiceNumber(self):
-        return self.__InvoiceNumber
+        return self.__invoiceNumber
 
-    def setInvoiceNumber(self,InvoiceNumber):
-        self.__InvoiceNumber = InvoiceNumber
+    def setInvoiceNumber(self,invoiceNumber):
+        self.__invoiceNumber = invoiceNumber
 
     def getDiscount(self):
-        return self.__Discount
-    def setDiscount(self,Discount):
-        self.__Discount = Discount
+        return self.__discount
+    def setDiscount(self,discount):
+        self.__discount = discount
     
     def getTaxes(self):
-        return self.__Taxes
+        return self.__taxes
 
-    def setTaxes(self,Taxes):
-        self.__Taxes = Taxes
+    def setTaxes(self,taxes):
+        self.__taxes = taxes
 class Gender(Enum):
     Male=1
     Female=2
@@ -213,15 +214,15 @@ sohib = Customer('Sohibjon','Avgonov',777777,'Sad City',Gender.Male,14)
 car=Vehicle('Mercedes','Black',55555,2017,'Germany')
 mechanic = Mechanic('Alex','Max',Gender.Male,36,Level.Expert)
 service1 = Service('13March2023',Service_Type.diagnostics,1,sohib.getCustomerID,car.getVehicle_ID)
-service2 = Service('13March2023',Service_Type.Oil_Replacement,2,sohib.getCustomerID,car.getVehicle_ID)
-service3 = Service('13March2023',Service_Type.Tire,3,sohib.getCustomerID,car.getVehicle_ID)
+service2 = Service('13March2023',Service_Type.oil_Replacement,2,sohib.getCustomerID,car.getVehicle_ID)
+service3 = Service('13March2023',Service_Type.tire,3,sohib.getCustomerID,car.getVehicle_ID)
 invoice = Invoice(sohib.getCustomerID,'14March2023',1234,7,3)
 
         
         
 
 if __name__ == '__main__':
-    prices={'diagnostics':15,'Oil_Replacement':120,'Oil_Filter_Parts':35,'Tire_Replacement':50,'Tire':80}
+    prices={'diagnostics':15,'oil_Replacement':120,'oil_Filter_Parts':35,'tire_Replacement':50,'tire':80}
     print("\033[1m"+'Receipt'+"\033[0m")
     print("\033[1m"+'Cell Phone Number:'+"\033[0m", sohib.getPhone())
     print("\033[1m"+'Date:'+"\033[0m", service1.getDate())
