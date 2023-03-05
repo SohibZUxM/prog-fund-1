@@ -238,7 +238,7 @@ if __name__ == '__main__':
     print(2,'',service2.getServiceType().name,'_______________', service2.getQuantity()*prices[service2.getServiceType().name])
     print(3,'',service3.getServiceType().name,'__________________________', service3.getQuantity()*prices[service3.getServiceType().name])
     print('____________________________','Taxes',invoice.getTaxes())
-    total=prices[service1.getServiceType().name]+prices[service2.getServiceType().name]+prices[service3.getServiceType().name]+invoice.getTaxes()
+    total=service1.getQuantity()*prices[service1.getServiceType().name]+service2.getQuantity()*prices[service2.getServiceType().name]+service3.getQuantity()*prices[service3.getServiceType().name]+invoice.getTaxes()
     print('____________________________','Total',prices[service1.getServiceType().name]+prices[service2.getServiceType().name]+prices[service3.getServiceType().name]+invoice.getTaxes())
     print('_________________________','Discount',invoice.getDiscount())
     print('_____________________',"\033[1m"+'Final Amount'+"\033[0m",total-invoice.getDiscount())
